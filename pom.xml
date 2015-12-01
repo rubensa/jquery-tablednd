@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>jquery-tablednd</artifactId>
-    <version>0.9.1</version>
+    <version>0.9.1-SNAPSHOT</version>
     <name>jquery-tablednd</name>
     <description>WebJar for TableDnD</description>
     <url>http://webjars.org</url>
@@ -53,13 +53,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <upstream.version>0.9.1</upstream.version>
         <upstream.artifactId>TableDnD</upstream.artifactId>
-        <upstream.url>https://github.com/isocra/TableDnD/archive/0.9.1.zip</upstream.url>
+        <upstream.url>https://github.com/isocra/TableDnD/archive/${upstream.version}.zip</upstream.url>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
         <requirejs>
             {
                 "paths": {
-                    "jquery-tablednd": "dist/jquery.tablednd",
-                    "jquery-tablednd-min": "dist/jquery.tablednd.min",
+                    "jquery-tablednd": "jquery.tablednd",
+                    "jquery-tablednd-min": "jquery.tablednd.min",
                 },
                 "shim": {
                     "jquery-tablednd": {
@@ -95,7 +95,7 @@
                                 <echo message="moving resources" />
                                 <move todir="${destDir}">
                                     <fileset
-                                        dir="${project.build.directory}/${upstream.artifactId}-${upstream.version}" />
+                                        dir="${project.build.directory}/${upstream.artifactId}-${upstream.version}/dist" />
                                 </move>
                             </target>
                         </configuration>
